@@ -1,0 +1,24 @@
+### Delete existing question 4
+DELETE http://localhost:8081/api/questions/4
+
+### Delete existing question 5
+DELETE http://localhost:8081/api/questions/5
+
+### Delete existing question 6
+DELETE http://localhost:8081/api/questions/6
+
+### Delete existing question 7
+DELETE http://localhost:8081/api/questions/7
+
+### Import the PDF questions
+POST http://localhost:8081/api/questions/bulk
+Content-Type: application/json
+
+< questions-week1-12.json
+
+
+
+
+### Verify the questions
+GET http://localhost:8081/api/questions
+

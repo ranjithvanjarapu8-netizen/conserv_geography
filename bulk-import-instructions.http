@@ -1,0 +1,13 @@
+### Add this endpoint inside QuestionController
+
+    @PostMapping("/bulk")
+    public List<Question> addQuestions(@Valid @RequestBody List<@Valid Question> questions) {
+        return questionRepository.saveAll(questions);
+    }
+
+### After saving and restarting the Spring Boot app, run this request
+
+POST http://localhost:8081/api/questions/bulk
+Content-Type: application/json
+
+< questions-week1-12.json

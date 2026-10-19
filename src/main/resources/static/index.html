@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservation Geography Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <button id="back-button" class="icon-button hidden" aria-label="Back">←</button>
+    <div class="brand-icon" aria-hidden="true">▤</div>
+    <div class="brand-text">
+        <div class="brand-label">Conservation Geography</div>
+        <h1>Practice Question Bank</h1>
+    </div>
+    <button id="theme-button" class="icon-button theme-button" aria-label="Toggle theme">☼</button>
+</header>
+
+<main>
+    <section id="setup-screen">
+        <div class="setup-grid">
+            <div class="panel weeks-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="step-label">Step 1</span>
+                        <h2>Select Question Year</h2>
+                    </div>
+                    <span class="year-badge">2026</span>
+                </div>
+
+                <h3 class="section-title">Choose Course Weeks</h3>
+                <div class="week-actions">
+                    <button id="select-all-weeks" class="small-button">Select All</button>
+                    <button id="clear-weeks" class="small-button">Clear</button>
+                </div>
+                <div id="week-grid" class="week-grid"></div>
+                <div id="selection-summary" class="selection-summary"></div>
+            </div>
+
+            <div class="setup-side">
+                <div class="panel">
+                    <span class="step-label">Step 2</span>
+                    <h2>Select a Mode</h2>
+
+                    <div class="mode-cards">
+                        <button class="mode-card selected" data-mode="practice">
+                            <span class="mode-icon practice-icon">✎</span>
+                            <span>
+                                <strong>Practice Mode</strong>
+                                <small>Check answers as you learn and view feedback immediately.</small>
+                            </span>
+                            <span class="card-arrow">›</span>
+                        </button>
+
+                        <button class="mode-card" data-mode="exam">
+                            <span class="mode-icon exam-icon">✓</span>
+                            <span>
+                                <strong>Exam Mode</strong>
+                                <small>Submit your exam to see your score and review answers.</small>
+                            </span>
+                            <span class="card-arrow">›</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <span class="step-label">Step 3</span>
+                    <h2 id="settings-heading">Study Settings</h2>
+
+                    <label class="setting-row">
+                        <span>
+                            <strong>Shuffle Questions</strong>
+                            <small>Randomize the order of questions</small>
+                        </span>
+                        <input id="shuffle-questions" type="checkbox" checked>
+                    </label>
+
+                    <label id="display-mode-row" class="setting-row">
+                        <span>
+                            <strong>Display Mode</strong>
+                            <small>Choose how questions are shown</small>
+                        </span>
+                        <select id="display-mode">
+                            <option value="one">1 at a time</option>
+                            <option value="all">All</option>
+                        </select>
+                    </label>
+                </div>
+
+                <button id="start-button" class="primary-button">Start Study</button>
+                <p id="setup-message" class="message" role="status"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz-screen" class="hidden">
+        <div class="quiz-heading">
+            <div>
+                <span id="quiz-mode-label" class="step-label">PRACTICE MODE</span>
+                <h2 id="progress-label">Question 1</h2>
+            </div>
+            <button id="finish-button" class="danger-button hidden">Submit Exam</button>
+        </div>
+
+        <div class="quiz-layout">
+            <nav id="question-nav" class="question-nav">
+                <h3>Questions</h3>
+                <div id="question-palette" class="question-palette"></div>
+            </nav>
+
+            <div id="question-list" class="question-list"></div>
+        </div>
+
+        <div id="single-controls" class="navigation-controls">
+            <button id="previous-button" class="secondary-button">Previous</button>
+            <span id="score-label" class="score-label"></span>
+            <button id="next-button" class="secondary-button">Next</button>
+        </div>
+    </section>
+
+    <section id="results-screen" class="hidden">
+        <div class="panel results-panel">
+            <span class="step-label">Exam complete</span>
+            <h2>Your Results</h2>
+            <p id="final-score" class="final-score"></p>
+            <p id="result-summary" class="muted"></p>
+        </div>
+
+        <div class="results-grid">
+            <div class="panel">
+                <h2>Wrong Answers</h2>
+                <div id="wrong-results"></div>
+            </div>
+
+            <div class="panel">
+                <h2>Unanswered Questions</h2>
+                <div id="unattempted-results"></div>
+            </div>
+        </div>
+
+        <div id="retest-options" class="panel">
+            <h2>Retest</h2>
+            <p class="muted">Choose which questions you want to try again.</p>
+            <div class="retest-buttons">
+                <button id="retest-wrong" class="secondary-button">
+                    Retest Wrong Answers
+                </button>
+                <button id="retest-unanswered" class="secondary-button">
+                    Retest Unanswered
+                </button>
+                <button id="retest-both" class="primary-button">
+                    Retest Both
+                </button>
+            </div>
+        </div>
+
+        <button id="return-home-button" class="primary-button">Back to Setup</button>
+    </section>
+</main>
+</body>
+</html>
